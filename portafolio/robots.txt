@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://francocerda.github.io/sitemap.xml
+
+# Optimizaciones para SEO
+Crawl-delay: 1
+
+# Directorios que no queremos indexar
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /*.css$
+Disallow: /*.js$
+
+# Permitir archivos importantes
+Allow: /assets/images/
+Allow: /assets/fonts/
