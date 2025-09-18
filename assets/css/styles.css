@@ -3,13 +3,13 @@
     --primary-bg: #ffffff;
     --secondary-bg: #f8fafc;
     --card-bg: #ffffff;
-    --accent-color: #3b82f6;
+    --accent-color: #16a085;
     --text-primary: #1e293b;
     --text-secondary: #64748b;
     --text-muted: #94a3b8;
     --border-color: #e2e8f0;
-    --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    --gradient-secondary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    --gradient-primary: linear-gradient(135deg, #16a085 0%, #27ae60 100%);
+    --gradient-secondary: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
     --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.05);
     --shadow-medium: 0 10px 25px rgba(0, 0, 0, 0.1);
     --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.15);
@@ -50,7 +50,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #1d4ed8;
+    background: #27ae60;
 }
 
 /* ==================== TIPOGRAFÍA ==================== */
@@ -88,7 +88,7 @@ body {
 .navbar {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+    border-bottom: 1px solid rgba(22, 160, 133, 0.1);
     transition: all 0.3s ease;
     padding: 1rem 0;
     box-shadow: var(--shadow-light);
@@ -145,7 +145,7 @@ body {
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2859, 130, 246, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2822, 160, 133, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* ==================== SECCIÓN HERO ==================== */
@@ -164,8 +164,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom left, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+    background: radial-gradient(ellipse at top right, rgba(22, 160, 133, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom left, rgba(52, 152, 219, 0.1) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -331,7 +331,7 @@ body {
 
 .profile-image:hover {
     transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 20px 40px rgba(22, 160, 133, 0.3);
 }
 
 .contact-link {
@@ -372,9 +372,9 @@ body {
 }
 
 .tech-badge {
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(22, 160, 133, 0.1);
     color: var(--accent-color);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(22, 160, 133, 0.3);
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.85rem;
@@ -400,7 +400,7 @@ footer {
 .form-control:focus {
     background: var(--card-bg) !important;
     border-color: var(--accent-color) !important;
-    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25) !important;
+    box-shadow: 0 0 0 0.2rem rgba(22, 160, 133, 0.25) !important;
     color: var(--text-primary) !important;
 }
 
