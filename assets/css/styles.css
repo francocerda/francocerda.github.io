@@ -1,8 +1,9 @@
-/* ==================== VARIABLES CSS ==================== */
+/* ==================== VARIABLES CSS – MODO CLARO ==================== */
 :root {
-    --primary-bg: #ffffff;
-    --secondary-bg: #f8fafc;
+    --primary-bg: #f8fafc;
+    --secondary-bg: #f1f5f9;
     --card-bg: #ffffff;
+    --navbar-bg: rgba(255, 255, 255, 0.95);
     --accent-color: #3b82f6;
     --text-primary: #1e293b;
     --text-secondary: #64748b;
@@ -13,6 +14,34 @@
     --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.05);
     --shadow-medium: 0 10px 25px rgba(0, 0, 0, 0.1);
     --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --hero-radial-1: rgba(59, 130, 246, 0.08);
+    --hero-radial-2: rgba(99, 102, 241, 0.08);
+    --toggle-bg: #e2e8f0;
+    --toggle-thumb: #ffffff;
+    --toggle-icon-color: #64748b;
+}
+
+/* ==================== VARIABLES CSS – MODO OSCURO ==================== */
+[data-theme="dark"] {
+    --primary-bg: #0f172a;
+    --secondary-bg: #1e293b;
+    --card-bg: #1e293b;
+    --navbar-bg: rgba(15, 23, 42, 0.97);
+    --accent-color: #60a5fa;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border-color: #334155;
+    --gradient-primary: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    --gradient-secondary: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 10px 25px rgba(0, 0, 0, 0.4);
+    --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.5);
+    --hero-radial-1: rgba(96, 165, 250, 0.06);
+    --hero-radial-2: rgba(129, 140, 248, 0.06);
+    --toggle-bg: #334155;
+    --toggle-thumb: #60a5fa;
+    --toggle-icon-color: #60a5fa;
 }
 
 /* ==================== RESET Y BASE ==================== */
@@ -33,6 +62,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* ==================== SCROLLBAR PERSONALIZADO ==================== */
@@ -84,9 +114,54 @@ body {
     border-radius: 2px;
 }
 
+/* ==================== TOGGLE MODO OSCURO/CLARO ==================== */
+.theme-toggle-btn {
+    background: var(--toggle-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    cursor: pointer;
+    width: 54px;
+    height: 28px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 0.75rem;
+}
+
+.theme-toggle-btn::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--toggle-thumb);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+[data-theme="dark"] .theme-toggle-btn::after {
+    transform: translateX(26px);
+}
+
+.theme-toggle-btn .icon-sun,
+.theme-toggle-btn .icon-moon {
+    font-size: 0.65rem;
+    color: var(--toggle-icon-color);
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+    pointer-events: none;
+}
+
 /* ==================== NAVEGACIÓN ==================== */
 .navbar {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--navbar-bg);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(59, 130, 246, 0.1);
     transition: all 0.3s ease;
@@ -164,8 +239,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom left, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+    background: radial-gradient(ellipse at top right, var(--hero-radial-1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom left, var(--hero-radial-2) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -381,6 +456,12 @@ body {
     font-weight: 500;
     margin: 0.2rem;
     display: inline-block;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] .tech-badge {
+    background: rgba(96, 165, 250, 0.12);
+    border-color: rgba(96, 165, 250, 0.3);
 }
 
 /* ==================== FOOTER ==================== */
@@ -388,6 +469,7 @@ footer {
     background: var(--secondary-bg);
     border-top: 1px solid var(--border-color);
     margin-top: 5rem;
+    transition: background-color 0.4s ease;
 }
 
 /* ==================== FORMULARIOS ==================== */
@@ -395,6 +477,7 @@ footer {
     background: var(--card-bg) !important;
     border: 1px solid var(--border-color) !important;
     color: var(--text-primary) !important;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .form-control:focus {
@@ -404,9 +487,23 @@ footer {
     color: var(--text-primary) !important;
 }
 
+.form-label {
+    color: var(--text-secondary) !important;
+}
+
 /* ==================== UTILIDADES ==================== */
 .hover-accent:hover {
     color: var(--accent-color) !important;
+    transition: color 0.3s ease;
+}
+
+.text-secondary {
+    color: var(--text-secondary) !important;
+    transition: color 0.3s ease;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
     transition: color 0.3s ease;
 }
 
@@ -416,17 +513,17 @@ footer {
         padding: 2rem 0;
         text-align: center;
     }
-    
+
     .skills-grid {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 1rem;
     }
-    
+
     .profile-image {
         width: 250px;
         height: 250px;
     }
-    
+
     .custom-card {
         padding: 1.5rem;
         margin-bottom: 2rem;
@@ -452,6 +549,11 @@ footer {
 
     .tech-icon {
         font-size: 3rem;
+    }
+
+    .theme-toggle-btn {
+        margin-left: 0;
+        margin-top: 0.5rem;
     }
 }
 

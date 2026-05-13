@@ -82,6 +82,13 @@
                             <i class="fas fa-file-pdf me-2"></i>CV
                         </a>
                     </li>
+                    <!-- Toggle Modo Oscuro -->
+                    <li class="nav-item d-flex align-items-center" data-aos="fade-down" data-aos-delay="600">
+                        <button id="themeToggle" class="theme-toggle-btn" aria-label="Alternar modo oscuro" title="Cambiar tema">
+                            <i class="fas fa-sun icon-sun"></i>
+                            <i class="fas fa-moon icon-moon"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -167,6 +174,7 @@
                                 <span class="tech-badge">Programación Competitiva</span>
                                 <span class="tech-badge">Desarrollo Web Full-Stack</span>
                                 <span class="tech-badge">Automatización con IA</span>
+                                <span class="tech-badge">Impresión 3D</span>
                             </div>
                         </div>
                     </div>
@@ -249,10 +257,10 @@
                     <div class="custom-card">
                         <div class="d-flex align-items-center mb-3">
                             <i class="fas fa-briefcase text-gradient me-3" style="font-size: 2rem;"></i>
-                            <h5 class="mb-0 text-gradient">Práctica Industrial I (2025–2026)</h5>
+                            <h5 class="mb-0 text-gradient">Ceduc UCN – Práctica Industrial</h5>
                         </div>
                         <p class="text-secondary mb-4">
-                            Análisis de datos de estudiantes e implementación de un nuevo servicio web para
+                            Realizada en <strong>Ceduc UCN, Chile</strong>. Análisis de datos de estudiantes e implementación de un nuevo servicio web para
                             asistentes sociales. Integración de <strong>React</strong>, <strong>Node.js</strong>,
                             <strong>MySQL</strong>, <strong>Elastic</strong> para email y servicios de Drive.
                         </p>
@@ -287,23 +295,21 @@
                     </div>
                 </div>
 
-                <!-- Proyecto 5 - Homelab -->
+                <!-- Proyecto 5 - Homelab y 3D -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                     <div class="custom-card">
                         <div class="d-flex align-items-center mb-3">
                             <i class="fas fa-server text-gradient me-3" style="font-size: 2rem;"></i>
-                            <h5 class="mb-0 text-gradient">Homelab – Servidor Doméstico</h5>
+                            <h5 class="mb-0 text-gradient">Home Server e Impresión 3D</h5>
                         </div>
                         <p class="text-secondary mb-4">
-                            Diseño e implementación de un servidor doméstico para gestión de archivos,
-                            servicios de streaming y automatización, junto con proyectos de domotízación
-                            usando <strong>Raspberry Pi</strong>.
+                            Diseño de un servidor doméstico para gestión de archivos y automatización. Además, cuento con interés y experiencia en el uso de <strong>Impresoras 3D</strong> (conectadas a los servidores del hogar) y modelado en software de <strong>Diseño 3D</strong>.
                         </p>
                         <div class="mb-4">
+                            <span class="tech-badge">Impresión 3D</span>
+                            <span class="tech-badge">Diseño 3D</span>
                             <span class="tech-badge">Docker</span>
                             <span class="tech-badge">Linux</span>
-                            <span class="tech-badge">Raspberry Pi</span>
-                            <span class="tech-badge">Nginx</span>
                         </div>
                     </div>
                 </div>
@@ -480,7 +486,7 @@
                         <div>
                             <h6 class="mb-1">Magíster en Ciencias de la Ingeniería Informática</h6>
                             <p class="text-secondary mb-0">Universidad Técnica Federico Santa María</p>
-                            <small class="text-muted">2026 – Esperado 2027 (En curso)</small>
+                            <small class="text-muted">2026A – Esperado 2027 (En curso)</small>
                         </div>
                     </div>
                 </div>
@@ -680,5 +686,39 @@
     
     <!-- Custom Scripts -->
     <script src="assets/js/script.js"></script>
+
+    <!-- Dark Mode Script -->
+    <script>
+        (function () {
+            // Apply saved theme immediately to avoid flash
+            const saved = localStorage.getItem('theme');
+            if (saved === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggle = document.getElementById('themeToggle');
+            const html   = document.documentElement;
+
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    html.setAttribute('data-theme', 'dark');
+                } else {
+                    html.removeAttribute('data-theme');
+                }
+                localStorage.setItem('theme', theme);
+            }
+
+            // Init from storage
+            const saved = localStorage.getItem('theme') || 'light';
+            applyTheme(saved);
+
+            toggle.addEventListener('click', function () {
+                const current = html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+                applyTheme(current === 'dark' ? 'light' : 'dark');
+            });
+        });
+    </script>
 </body>
 </html>
